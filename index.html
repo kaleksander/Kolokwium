@@ -8,7 +8,7 @@
     <div id="app">
         <div class="kwadrat" v-for="rzad in rows">
             <div v-for="kolumna in columns">
-                <div class="cell" :class="{active: (active[0]==rzad && active[2]==kolumna)}" >
+                <div class="cell" :class="{active: (active[0]==rzad && active[1]==kolumna)}" @click="active=[rzad,kolumna]">
                     {{ rzad }},{{ kolumna }}
                 </div>
             </div>
@@ -24,7 +24,7 @@
             message: 'Powodzenia',
             rows: 10,
             columns: 10,
-            active: "1,1"
+            active: [1,1]
         }
     })
     </script>
@@ -45,11 +45,11 @@
         height: 50px;
         width: 50px;
         background-color: orange;
-        border: solid 1px;
         border-color: grey;
         border-radius: 10px;
         margin-bottom: 10px;
         margin-right: 10px;
+        border: solid 1px;
     }
 
     .active
