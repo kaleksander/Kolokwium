@@ -8,7 +8,7 @@
     <div id="app">
         <div class="kwadrat" v-for="rzad in rows">
             <div v-for="kolumna in columns">
-                <div class="cell">
+                <div class="cell" :class="{active: (active[0]==rzad && active[2]==kolumna)}" >
                     {{ rzad }},{{ kolumna }}
                 </div>
             </div>
@@ -23,7 +23,8 @@
         data: {
             message: 'Powodzenia',
             rows: 10,
-            columns: 10
+            columns: 10,
+            active: "1,1"
         }
     })
     </script>
@@ -49,6 +50,12 @@
         border-radius: 10px;
         margin-bottom: 10px;
         margin-right: 10px;
+    }
+
+    .active
+    {
+        background-color: red;
+        color: white;
     }
 
 </style>
